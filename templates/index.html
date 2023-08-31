@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="{{url_for('stop_webcam')}}" method="post">
+                <button type="submit">Stop Web feed</button>
+            </form>
+            <form action="{{url_for('start_webcam')}}" method="get">
+                <button type="submit">Start Web feed</button>
+            </form>
+            <a href="{{url_for('frames')}}">Screenshots</a>
+            <div class="col-lg-8 offset-lg-2">
+                <h3 class="mt-5">
+                    {{stream['message']}}
+                </h3>
+                <img src="{{stream['video_feed']}}" style="margin-left: 25%;" width="50%" alt="video_feed">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
