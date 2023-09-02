@@ -1,14 +1,17 @@
-import cv2 
-import cvlib as cv
-import cvlib.object_detection as draw_bbox
+import pyaudio
 
-camera = cv2.VideoCapture(0)
+FORMAT = pyaudio.paInt16
+CHANNELS = 2
+RATE = 44100
+CHUNK = 1024
 
-while True:
-    ret, frame = camera.read()
-    bbox, label, conf = cv.detect_common_objects(frame)
-    output_image = draw_bbox(frame, bbox, label, conf)
-    cv2.imshow('Object Detection',output_image)
+audio = pyaudio.PyAudio()
 
-    if cv2.waitKey(1) and 0xFF == ord('q'):
-        break
+def record():
+    #encode recording
+    stream = audio.open(format=FORMAT, channels=CHANNELS,
+                        rate=RATE, input=True, output=True,
+                        frames_per_buffer=CHUNK, input_device_index=0)
+    #read encoding
+    data = stream.read(CHUNK)
+    return data

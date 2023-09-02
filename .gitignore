@@ -46,3 +46,10 @@ static/frame_1693418260.0438015.jpg
 static/frame_1693418260.2128122.jpg
 static/frame_1693418260.3678133.jpg
 static/frame_1693418260.5138004.jpg
+libcascades/dog_face_haar_cascade.xml
+libcascades/lbpcascade_frontalface.xml
+libcascades/lbpcascade_profileface.xml
+libcascades/lbpcascade_frontalface_improved.xml
+libcascades/lbpcascade_frontalcatface.xml
+libcascades/lbpcascade_silverware.xml
+

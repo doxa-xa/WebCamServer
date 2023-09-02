@@ -3,23 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <div class="row">
+        <div class="nav">
             <form action="{{url_for('stop_webcam')}}" method="post">
-                <button type="submit">Stop Web feed</button>
+                <button class="btn btn-primary m-1" type="submit">Stop Web feed</button>
             </form>
             <form action="{{url_for('start_webcam')}}" method="get">
-                <button type="submit">Start Web feed</button>
+                <button class="btn btn-primary m-1" type="submit">Start Web feed</button>
             </form>
             <a href="{{url_for('frames')}}">Screenshots</a>
+            <a href="{{url_for('zoomed')}}">Zoom + </a>
+        </div>
+        <div class="row">
             <div class="col-lg-8 offset-lg-2">
                 <h3 class="mt-5">
                     {{stream['message']}}
                 </h3>
-                <img src="{{stream['video_feed']}}" style="margin-left: 25%;" width="50%" alt="video_feed">
+                <img src="{{stream['video_feed']}}" width="100%" alt="video_feed">
+                <audio controls>
+                    <source src="{{url_for('audio_feed')}}" type="audio/x-wav">
+                </audio>
+                
             </div>
         </div>
     </div>
